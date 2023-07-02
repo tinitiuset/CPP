@@ -1,6 +1,5 @@
 #include <sstream>
-#include "iostream"
-#include "fstream"
+#include <fstream>
 
 using namespace std;
 
@@ -9,11 +8,16 @@ int main(int argc, char *argv[]) {
 	if (argc != 4)
 		return (1);
 
-	stringstream str;
-	string file_content;
-	string file_name = argv[1];
-	ifstream infile;
-	ofstream outfile;
+	ifstream	infile;
+	ofstream	outfile;
+
+	string file_name =	argv[1];
+	string replacee =	argv[2];
+	string replacer =	argv[3];
+
+	unsigned long	index;
+	stringstream	str;
+	string			file_content;
 
 	infile.open(file_name);
 	outfile.open(file_name + ".replace");
@@ -21,11 +25,13 @@ int main(int argc, char *argv[]) {
 	str << infile.rdbuf();
 
 	file_content = str.str();
-//	size_t found = file_content.find(argv[2]);
-//	if (found != string::npos)
-//	{
-//		cout << "Found occurrence in: " << found << endl;
-//	}
+
+	while (file_content.find(replacee) != string::npos)
+	{
+		index = file_content.find(replacee);
+		file_content.erase(file_content.find(replacee), replacee.length());
+		file_content.insert(index, replacer);
+	}
 
 	outfile << file_content;
 

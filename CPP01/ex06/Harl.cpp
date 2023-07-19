@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Harl::Harl(string level) {
+Harl::Harl(const string& level) {
 	string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
 	this->minLevel = DEFAULT;
@@ -36,19 +36,30 @@ void Harl::error(void) {
 
 void Harl::complain(string level) {
 
-	if (minLevel == DEFAULT)
-	{
-		cout << "[ Probably complaining about insignificant problems ]" << endl;
-		return;
-	}
+	string levels[] = {"DEFAULT", "DEBUG", "INFO", "WARNING", "ERROR" };
 
-	typedef void (Harl::*function)();
+	int j = 0;
 
-	function	functions[] = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
-	string			levels[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
-
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i <= 4; i++)
 		if (level == levels[i])
-			if (i + 1 >= this->minLevel)
-				(this->*functions[i])();
+			if (i + 1 > this->minLevel)
+				j = i;
+
+	switch (j) {
+		case DEBUG:
+			this->debug();
+			break;
+		case INFO:
+			this->info();
+			break;
+		case WARNING:
+			this->warning();
+			break;
+		case ERROR:
+			this->error();
+			break;
+		default:
+			cout << "[ Probably complaining about insignificant problems ]" << endl;
+			break;
+	}
 }

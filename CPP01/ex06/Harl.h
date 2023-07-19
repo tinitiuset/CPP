@@ -10,7 +10,7 @@ class Harl {
 		DEBUG = 1,
 		INFO = 2,
 		WARNING = 3,
-		ERROR = 4
+		ERROR = 4,
 	};
 
 private:
@@ -22,7 +22,7 @@ private:
 	void error(void);
 
 public:
-	Harl(std::string level);
+	Harl(const std::string& level);
 	void complain(std::string level);
 };
 

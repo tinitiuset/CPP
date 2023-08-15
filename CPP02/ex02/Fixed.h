@@ -32,25 +32,25 @@ public:
 
 	Fixed &operator=(const Fixed &fixed);
 
-	bool operator>(const Fixed &fixed);
+	bool operator>(const Fixed &fixed) const;
 
-	bool operator<(const Fixed &fixed);
+	bool operator<(const Fixed &fixed) const;
 
-	bool operator>=(const Fixed &fixed);
+	bool operator>=(const Fixed &fixed) const;
 
-	bool operator<=(const Fixed &fixed);
+	bool operator<=(const Fixed &fixed) const;
 
-	bool operator==(const Fixed &fixed);
+	bool operator==(const Fixed &fixed) const;
 
-	bool operator!=(const Fixed &fixed);
+	bool operator!=(const Fixed &fixed) const;
 
-	Fixed operator+(const Fixed &fixed);
+	Fixed operator+(const Fixed &fixed) const;
 
-	Fixed operator-(const Fixed &fixed);
+	Fixed operator-(const Fixed &fixed) const;
 
-	Fixed operator*(const Fixed &fixed);
+	Fixed operator*(const Fixed &fixed) const;
 
-	Fixed operator/(const Fixed &fixed);
+	Fixed operator/(const Fixed &fixed) const;
 
 	// https://www.ibm.com/docs/en/xl-c-and-cpp-aix/16.1?topic=only-overloading-increment-decrement-operators-c
 	// The compiler uses the int argument to distinguish between the prefix and postfix increment operators.

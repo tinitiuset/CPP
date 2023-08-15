@@ -58,61 +58,61 @@ Fixed &Fixed::operator=(const Fixed &fixed) {
 	return *this;
 }
 
-bool Fixed::operator>(const Fixed &fixed) {
+bool Fixed::operator>(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Greater than operator called" << endl;
 	return this->getRawBits() > fixed.getRawBits();
 }
 
-bool Fixed::operator<(const Fixed &fixed) {
+bool Fixed::operator<(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Less than operator called" << endl;
 	return this->getRawBits() < fixed.getRawBits();
 }
 
-bool Fixed::operator>=(const Fixed &fixed) {
+bool Fixed::operator>=(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Greater than or equal operator called" << endl;
 	return this->getRawBits() >= fixed.getRawBits();
 }
 
-bool Fixed::operator<=(const Fixed &fixed) {
+bool Fixed::operator<=(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Less than or equal operator called" << endl;
 	return this->getRawBits() <= fixed.getRawBits();
 }
 
-bool Fixed::operator==(const Fixed &fixed) {
+bool Fixed::operator==(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Equal operator called" << endl;
 	return this->getRawBits() == fixed.getRawBits();
 }
 
-bool Fixed::operator!=(const Fixed &fixed) {
+bool Fixed::operator!=(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Not equal operator called" << endl;
 	return this->getRawBits() != fixed.getRawBits();
 }
 
-Fixed Fixed::operator+(const Fixed &fixed) {
+Fixed Fixed::operator+(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Addition operator called" << endl;
 	return Fixed(this->toFloat() + fixed.toFloat());
 }
 
-Fixed Fixed::operator-(const Fixed &fixed) {
+Fixed Fixed::operator-(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Subtraction operator called" << endl;
 	return Fixed(this->toFloat() - fixed.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed &fixed) {
+Fixed Fixed::operator*(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Multiplication operator called" << endl;
 	return Fixed(this->toFloat() * fixed.toFloat());
 }
 
-Fixed Fixed::operator/(const Fixed &fixed) {
+Fixed Fixed::operator/(const Fixed &fixed) const {
 	if (DEBUG)
 		cout << "Division operator called" << endl;
 	return Fixed(this->toFloat() / fixed.toFloat());

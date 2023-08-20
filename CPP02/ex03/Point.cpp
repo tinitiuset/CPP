@@ -28,3 +28,11 @@ Fixed const Point::getX() const {
 Fixed const Point::getY() const {
 	return this->y;
 }
+
+Point &Point::operator=(const Point &p) {
+	if (DEBUG)
+		std::cout << "Point copy assignment operator called" << std::endl;
+	*(const_cast<Fixed *>(&this->x)) = p.x;
+	*(const_cast<Fixed *>(&this->y)) = p.y;
+	return *this;
+}

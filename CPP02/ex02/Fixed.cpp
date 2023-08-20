@@ -1,45 +1,43 @@
 #include "Fixed.h"
 
-using namespace std;
-
 Fixed::Fixed() {
 	if (DEBUG)
-		cout << "Default constructor called" << endl;
+		std::cout << "Default constructor called" << std::endl;
 	this->value = 0;
 }
 
 Fixed::Fixed(const int value) {
 	if (DEBUG)
-		cout << "Int constructor called" << endl;
+		std::cout << "Int constructor called" << std::endl;
 	this->value = value << this->bits;
 }
 
 Fixed::Fixed(const float value) {
 	if (DEBUG)
-		cout << "Float constructor called" << endl;
+		std::cout << "Float constructor called" << std::endl;
 	this->value = roundf(value * (1 << this->bits));
 }
 
 Fixed::Fixed(const Fixed &fixed) {
 	if (DEBUG)
-		cout << "Copy constructor called" << endl;
+		std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 }
 
 Fixed::~Fixed() {
 	if (DEBUG)
-		cout << "Destructor called" << endl;
+		std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const {
 	if (DEBUG)
-		cout << "getRawBits member function called" << endl;
+		std::cout << "getRawBits member function called" << std::endl;
 	return this->value;
 }
 
 void Fixed::setRawBits(int const raw) {
 	if (DEBUG)
-		cout << "setRawBits member function called" << endl;
+		std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 }
 
@@ -53,88 +51,88 @@ int Fixed::toInt(void) const {
 
 Fixed &Fixed::operator=(const Fixed &fixed) {
 	if (DEBUG)
-		cout << "Copy assignment operator called" << endl;
+		std::cout << "Copy assignment operator called" << std::endl;
 	this->value = fixed.value;
 	return *this;
 }
 
 bool Fixed::operator>(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Greater than operator called" << endl;
+		std::cout << "Greater than operator called" << std::endl;
 	return this->getRawBits() > fixed.getRawBits();
 }
 
 bool Fixed::operator<(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Less than operator called" << endl;
+		std::cout << "Less than operator called" << std::endl;
 	return this->getRawBits() < fixed.getRawBits();
 }
 
 bool Fixed::operator>=(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Greater than or equal operator called" << endl;
+		std::cout << "Greater than or equal operator called" << std::endl;
 	return this->getRawBits() >= fixed.getRawBits();
 }
 
 bool Fixed::operator<=(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Less than or equal operator called" << endl;
+		std::cout << "Less than or equal operator called" << std::endl;
 	return this->getRawBits() <= fixed.getRawBits();
 }
 
 bool Fixed::operator==(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Equal operator called" << endl;
+		std::cout << "Equal operator called" << std::endl;
 	return this->getRawBits() == fixed.getRawBits();
 }
 
 bool Fixed::operator!=(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Not equal operator called" << endl;
+		std::cout << "Not equal operator called" << std::endl;
 	return this->getRawBits() != fixed.getRawBits();
 }
 
 Fixed Fixed::operator+(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Addition operator called" << endl;
+		std::cout << "Addition operator called" << std::endl;
 	return Fixed(this->toFloat() + fixed.toFloat());
 }
 
 Fixed Fixed::operator-(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Subtraction operator called" << endl;
+		std::cout << "Subtraction operator called" << std::endl;
 	return Fixed(this->toFloat() - fixed.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Multiplication operator called" << endl;
+		std::cout << "Multiplication operator called" << std::endl;
 	return Fixed(this->toFloat() * fixed.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed &fixed) const {
 	if (DEBUG)
-		cout << "Division operator called" << endl;
+		std::cout << "Division operator called" << std::endl;
 	return Fixed(this->toFloat() / fixed.toFloat());
 }
 
 Fixed Fixed::operator++(void) {
 	if (DEBUG)
-		cout << "Pre-increment operator called" << endl;
+		std::cout << "Pre-increment operator called" << std::endl;
 	this->value++;
 	return *this;
 }
 
 Fixed Fixed::operator--(void) {
 	if (DEBUG)
-		cout << "Pre-decrement operator called" << endl;
+		std::cout << "Pre-decrement operator called" << std::endl;
 	this->value++;
 	return *this;
 }
 
 Fixed Fixed::operator++(int) {
 	if (DEBUG)
-		cout << "Post-increment operator called" << endl;
+		std::cout << "Post-increment operator called" << std::endl;
 	Fixed fixed = Fixed(*this);
 	this->value = this->value + 1;
 	return fixed;
@@ -142,7 +140,7 @@ Fixed Fixed::operator++(int) {
 
 Fixed Fixed::operator--(int) {
 	if (DEBUG)
-		cout << "Post-decrement operator called" << endl;
+		std::cout << "Post-decrement operator called" << std::endl;
 	Fixed fixed = Fixed(*this);
 	this->value = this->value - 1;
 	return fixed;
@@ -164,7 +162,7 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 	return a.getRawBits() > b.getRawBits() ? a : b;
 }
 
-ostream &operator<<(ostream &o, Fixed const &i) {
+std::ostream &operator<<(std::ostream &o, Fixed const &i) {
 	o << i.toFloat();
 	return o;
 }

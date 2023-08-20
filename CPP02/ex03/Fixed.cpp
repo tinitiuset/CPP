@@ -1,7 +1,5 @@
 #include "Fixed.h"
 
-using namespace std;
-
 Fixed::Fixed() {
 	this->value = 0;
 }
@@ -120,7 +118,7 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 	return a.getRawBits() > b.getRawBits() ? a : b;
 }
 
-ostream &operator<<(ostream &o, Fixed const &i) {
+std::ostream &operator<<(std::ostream &o, Fixed const &i) {
 	o << i.toFloat();
 	return o;
 }

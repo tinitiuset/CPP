@@ -5,7 +5,7 @@ STANDARD =	-std=c++98
 DEBUG =		-g0	# 0, 1, 2, 3 DEBUG INFORMATION LEVELS
 FLAGS =		-Wall -Werror -Wextra
 
-SRC_FILES =	Main.cpp FragTrap.cpp ClapTrap.cpp ScavTrap.cpp
+SRC_FILES =	main.cpp FragTrap.cpp ClapTrap.cpp ScavTrap.cpp
 
 all: $(NAME)
 

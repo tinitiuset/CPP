@@ -3,7 +3,7 @@
 
 int main(void) {
 
-	const Animal* meta = new Animal();
+	//const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
@@ -11,9 +11,9 @@ int main(void) {
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
-	meta->makeSound();
+	//meta->makeSound();
 
-	delete meta;
+	//delete meta;
 	delete j;
 	delete i;
 

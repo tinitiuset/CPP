@@ -16,43 +16,55 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &rhs) {
 void ScalarConverter::convertToChar(std::string input) {
 	std::cout << "char: ";
 	try {
-		char c = static_cast<char>(std::stoi(input));
-		if (std::isprint(c)) {
-			std::cout << c << std::endl;
+		if (std::isprint(static_cast<char>(std::stoi(input)))) {
+			std::cout << static_cast<char>(std::stoi(input)) << std::endl;
 		} else {
 			std::cout << "Non displayable" << std::endl;
 		}
 	} catch (std::exception &e) {
-		std::cout << "impossible" << std::endl;
+		if (input.length() == 1 && std::isprint(input[0])) {
+			std::cout << static_cast<char>(input[0]) << std::endl;
+		} else {
+			std::cout << "impossible" << std::endl;
+		}
 	}
 }
 
 void ScalarConverter::convertToInt(std::string input) {
 	std::cout << "int: ";
 	try {
-		int i = static_cast<int>(std::stoi(input));
-		std::cout << i << std::endl;
+		std::cout << static_cast<int>(std::stoi(input)) << std::endl;
 	} catch (std::exception &e) {
-		std::cout << "impossible" << std::endl;
+		if (input.length() == 1 && std::isprint(input[0])) {
+			std::cout << static_cast<int>(input[0]) << std::endl;
+		} else {
+			std::cout << "impossible" << std::endl;
+		}
 	}
 }
 
 void ScalarConverter::convertToFloat(std::string input) {
 	std::cout << "float: ";
 	try {
-		float f = static_cast<float>(std::stof(input));
-		std::cout << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << static_cast<float>(std::stof(input)) << "f" << std::endl;
 	} catch (std::exception &e) {
-		std::cout << "impossible" << std::endl;
+		if (input.length() == 1 && std::isprint(input[0])) {
+			std::cout << std::fixed << std::setprecision(1) << static_cast<float>(input[0])<< "f" << std::endl;
+		} else {
+			std::cout << "impossible" << std::endl;
+		}
 	}
 }
 
 void ScalarConverter::convertToDouble(std::string input) {
 	std::cout << "double: ";
 	try {
-		double d = static_cast<double>(std::stod(input));
-		std::cout << std::fixed << std::setprecision(1) << d << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(std::stod(input)) << std::endl;
 	} catch (std::exception &e) {
-		std::cout << "impossible" << std::endl;
+		if (input.length() == 1 && std::isprint(input[0])) {
+			std::cout << std::fixed << std::setprecision(1) << static_cast<double>(input[0]) << std::endl;
+		} else {
+			std::cout << "impossible" << std::endl;
+		}
 	}
 }

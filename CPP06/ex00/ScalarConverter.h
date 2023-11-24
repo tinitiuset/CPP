@@ -6,13 +6,12 @@
 
 class ScalarConverter{
 private:
+	ScalarConverter();
+	~ScalarConverter();
 	ScalarConverter(const ScalarConverter &src);
 	ScalarConverter &operator=(const ScalarConverter &rhs);
 
 public:
-	ScalarConverter();
-	~ScalarConverter();
-
 	static void convertToChar(std::string);
 	static void convertToInt(std::string);
 	static void convertToFloat(std::string);

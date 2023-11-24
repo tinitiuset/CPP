@@ -7,10 +7,9 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
-	ScalarConverter converter;
-	converter.convertToChar(argv[1]);
-	converter.convertToInt(argv[1]);
-	converter.convertToFloat(argv[1]);
-	converter.convertToDouble(argv[1]);
+	ScalarConverter::convertToChar(argv[1]);
+	ScalarConverter::convertToInt(argv[1]);
+	ScalarConverter::convertToFloat(argv[1]);
+	ScalarConverter::convertToDouble(argv[1]);
 	return 0;
 }

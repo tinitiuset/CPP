@@ -5,7 +5,6 @@
 #include <list>
 #include <vector>
 #include <ctime>
-#include <iterator>
 
 class PmergeMe {
 
@@ -25,7 +24,6 @@ private:
 
 	std::list<int> _list;
 	std::vector<int> _vector;
-
 
 };
 

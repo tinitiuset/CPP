@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
 	}
 
 	try {
-		new BitcoinExchange(argv[1]);
+		BitcoinExchange bitcoinExchange(argv[1]);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;

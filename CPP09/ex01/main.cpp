@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
 	}
 
 	try {
-		new RPN(argv[1]);
+		RPN rpn(argv[1]);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;

@@ -13,11 +13,9 @@ std::string timestampToDate(double timestamp) {
 void BitcoinExchange::checkAgainstDatabase(std::pair<double, float> pair) {
 
 	std::map<double, float>::iterator it = _db.lower_bound(pair.first);
-
-	if (it != _db.end()) {
-		std::cout << timestampToDate(pair.first) << " => " << pair.second
-		          << " = " << it->second * pair.second << " " << std::endl;
-	}
+	it--;
+	std::cout << timestampToDate(pair.first) << " => " << pair.second
+			  << " = " << it->second * pair.second << " " << std::endl;
 }
 
 std::pair<double, float> BitcoinExchange::getPair(std::string line) {
